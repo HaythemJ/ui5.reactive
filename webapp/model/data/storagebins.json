@@ -1,0 +1,39 @@
+{
+    "storageBins":[
+        {
+            "name":"Storage Bin 1",
+            "materials":[
+                {
+                    "uuid":"11000211",
+                    "name":"Material 1",
+                    "price":100,
+                    "stock":0
+                },
+                {
+                    "uuid":"11000212",
+                    "name":"Material 2",
+                    "price":200,
+                    "stock":5
+                }
+            ]
+        },
+        {
+            "name":"Storage Bin 2",
+            "materials":[
+                {
+                    "uuid":"11000211",
+                    "name":"Material 3",
+                    "price":45,
+                    "stock":8
+                },
+                {
+                    "uuid":"11000212",
+                    "name":"Material 4",
+                    "price":201570,
+                    "stock":41
+                }
+            ]
+        }
+    ]
+
+}

@@ -1,0 +1,75 @@
+<View controllerName="sample.ui5.reactive.controller.Main" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Page id="page" title="{i18n>title}">
+		<content>
+            <FlexBox
+				height="100px"
+				alignItems="Center"
+				justifyContent="Center">
+				<SegmentedButton selectedKey="exp1"  selectionChange="onSelectionChange">
+                    <items>
+                        <SegmentedButtonItem text="ManagedObectModel" key="exp1" />
+                        <SegmentedButtonItem text="JSON Model With Object.defineProperty" key="exp2" width="300px"/>
+                    </items>
+                </SegmentedButton>
+			</FlexBox>
+            
+			<Table id="idProductsTable" inset="false" items="{
+                    path: 'DataModel>/storageBins'
+                }" mode="SingleSelectMaster" itemPress=".onItemPress">
+				
+				<columns>
+					<Column width="12em">
+						<Text text="Storage Bin" />
+					</Column>
+
+					<Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+						<Text text="Status" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle" type="Active" highlight="{= ${DataModel>status}?'Success':'Error'}">
+						<cells>
+							<ObjectIdentifier title="{DataModel>name}" text="{DataModel>uid}" />
+
+							<Text text="{DataModel>status}" />
+		
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+            <HBox height="100px" ></HBox>
+            <Table id="idMaterialsTable" inset="false" items="{
+                path: 'DataModel>materials'
+            }">
+            
+            <columns>
+                <Column width="12em">
+                    <Text text="Material" />
+                </Column>
+
+                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+                    <Text text="Status" />
+                </Column>
+                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+                    <Text text="Stock" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem vAlign="Middle" highlight="{= ${DataModel>status}?'Success':'Error'}">
+                    <cells>
+                        <ObjectIdentifier title="{DataModel>name}" text="{DataModel>uid}" />
+
+                        <Text text="{DataModel>status}" />
+                        <StepInput
+                            value="{DataModel>stock}"
+                            min="0"
+                            max="1000"
+                            width="120px"
+                            step="1"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+		</content>
+	</Page>
+</View>
